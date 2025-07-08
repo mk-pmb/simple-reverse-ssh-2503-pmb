@@ -61,6 +61,20 @@ as described in [the drone connect protocol](drone-connect-protocol.md).
   the drone will be considered unauthorized, and dropped.
 
 
+#### Locking specific chambers
+
+To restrict connections or creation of subchambers, you can use the
+file permissions of their parent directory. If the effective chamber
+is not writeable (e.g. because it doesn't exist because it couldn't
+be created because its parent chamber was write-protected), no drone
+socket can be created there, and the drone will be dropped.
+
+If you create writeable chambers and then lock their parent directory,
+on most file systems, those chambers will still be writeable.
+
+
+
+
 
 
 
